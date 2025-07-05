@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { program } from 'commander';
-import { readFile } from './parsers.js';
-import { genDiff } from './diff.js';
+import { program } from 'commander'
+import { readFile } from './parsers.js'
+import { genDiff } from './diff.js'
 
 program
   .name('gendiff')
@@ -13,14 +13,15 @@ program
   .argument('<filepath2>')
   .action((filepath1, filepath2) => {
     try {
-      const data1 = readFile(filepath1);
-      const data2 = readFile(filepath2);
+      const data1 = readFile(filepath1)
+      const data2 = readFile(filepath2)
 
-      const diffResult = genDiff(data1, data2);
-      console.log(diffResult);
-    } catch (error) {
-      console.error(`Error: ${error.message}`);
+      const diffResult = genDiff(data1, data2)
+      console.log(diffResult)
     }
-  });
+    catch (error) {
+      console.error(`Error: ${error.message}`)
+    }
+  })
 
-program.parse();
+program.parse()
